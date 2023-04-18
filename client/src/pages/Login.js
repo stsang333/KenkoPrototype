@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Login.css';
 
 function App() {
   const navigate = useNavigate()
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <div>
+      <img className = "kenkologo" src = "/kenkologo.png" alt = "Logo"/>
       <h1>Login</h1>
       <form onSubmit={loginUser}>
         <input
