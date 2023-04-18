@@ -25,8 +25,10 @@ const Dashboard = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('token')
+
         if (token) {
-            const user = jwt.decode('token')
+            
+            const user = jwt.decode(token)
             if (!user) {
                 localStorage.removeItem('token')
                 navigate('/login')

@@ -22,12 +22,11 @@ function App() {
     })
 
     const data = await response.json()
-
     if (data.user) {
       localStorage.setItem('token', data.user)
       alert('Login successful')
       window.location.href = '/dashboard'
-      navigate('/dashboard')
+      //navigate('/dashboard')
     } else {
       alert('Please check your username and password')
     }
