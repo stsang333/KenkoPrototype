@@ -60,6 +60,10 @@ const Dashboard = () => {
         }
     }
 
+    function goToProfile() {
+        navigate('/profile')
+    }
+
     return (
         <div>
             <h1>Your quote: {quote || 'No quote found'}</h1>

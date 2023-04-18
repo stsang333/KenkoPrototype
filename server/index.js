@@ -83,6 +83,18 @@ app.post('/api/quote', async (req, res) => {
     
 })
 
+app.post('/api/changeName', async (req, res) => {
+    try {
+        const user = User.updateOne(
+            {email: req.body.email},
+            {name: req.body.name}
+        )
+        return res.json({status: 'ok'})
+    } catch(error) {
+        res.json({status: 'error', error: 'could not update name'})
+    }
+})
+
 app.listen(1337, () => {
     console.log('server started on 1337')
 })
