@@ -32,7 +32,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className = "loginPage">
       <img className = "kenkologo" src = "/kenkologo.png" alt = "Logo"/>
       <div className = "loginBox">
         <h1>Login</h1>

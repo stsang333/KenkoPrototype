@@ -1,0 +1,87 @@
+body {
+    font-family: "Helvetica Neue", sans-serif;
+  }
+  .kenkologo {
+    width: 200px;
+    height: 100px;
+    top: 0;
+    left : 0;
+    position:absolute;
+  }
+.image-stack{
+    display: block;
+}
+.landing1 {
+    height: auto; /* set the fixed height */
+    width: 100%; /* stretch the image to full width */
+    object-fit: cover; /* scale the image to cover the container */
+  }
+.landing2{
+    height: auto; /* set the fixed height */
+    width: 100%; /* stretch the image to full width */
+    object-fit: cover; /* scale the image to cover the container */
+}
+.landing3{
+    height: auto; /* set the fixed height */
+    width: 100%; /* stretch the image to full width */
+    object-fit: cover; /* scale the image to cover the container */
+}
+.landing-page {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    padding-top: 80px;
+    background-color: rgb(250,165,60);
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .topLanding{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+      
+  }
+  .login-btn {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    background-color: #1C3144;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .register-btn {
+    position: absolute;
+    top: 30px;
+    right: 150px;
+    background-color: #1C3144;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .login-btn, .register-btn {
+      top: 20px;
+      font-size: 14px;
+      padding: 8px 15px;
+    }
+    
+    .register-btn {
+      right: 80px;
+    }
+  }
