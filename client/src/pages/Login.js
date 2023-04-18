@@ -36,24 +36,26 @@ function App() {
   return (
     <div>
       <img className = "kenkologo" src = "/kenkologo.png" alt = "Logo"/>
-      <h1>Login</h1>
-      <form onSubmit={loginUser}>
-        <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="email"
-        />
-        <br/>
-        <input
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          type="password"
-          placeholder="password"
-        />
-        <br/>
-        <input type="submit" value="Login"/>
-      </form>
+      <div className = "loginBox">
+        <h1>Login</h1>
+        <form onSubmit={loginUser}>
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            placeholder="email"
+          />
+          <br/>
+          <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            placeholder="password"
+          />
+          <br/>
+          <input type="submit" value="Login"/>
+        </form>
+      </div>
     </div>
   );
 }
