@@ -2,82 +2,109 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import jwt from 'jsonwebtoken'
 import { useNavigate } from 'react-router-dom'
+import './Dashboard.css';
 
 const Dashboard = () => {
-    const navigate = useNavigate()
-    const [quote, setQuote] = useState('')
-    const [tempQuote, setTempQuote] = useState('')
+    const [newTask, setNewTask] = useState('');
+  const [tasks, setTasks] = useState([]);
 
-    async function populateQuote() {
-        const req = await fetch('http://localhost:1337/api/quote', {
-            headers: {
-                'x-access-token': localStorage.getItem('token'),
-            }
-        })
-
-        const data = await req.json()
-        if (data.status === 'ok') {
-            setQuote(data.quote)
-        } else {
-            alert(data.error)
-        }
+  const handleAddTask = () => {
+    if (newTask !== '') {
+      const newTaskObj = {
+        name: newTask,
+        muscle: '',
+        sets_and_reps: ''
+      };
+      setTasks([...tasks, newTaskObj]);
+      setNewTask('');
     }
+  };
 
-    useEffect(() => {
-        const token = localStorage.getItem('token')
+  const handleDeleteTask = (index) => {
+    const newTasks = tasks.filter((_, i) => i !== index);
+    setTasks(newTasks);
+  };
 
-        if (token) {
-            
-            const user = jwt.decode(token)
-            if (!user) {
-                localStorage.removeItem('token')
-                navigate('/login')
-            } else {
-                populateQuote()
-            }
-        }
-    }, [])
+  const handleChangeTaskName = (index, name) => {
+    const newTasks = tasks.map((task, i) => {
+      if (i === index) {
+        return {
+          ...task,
+          name: name
+        };
+      }
+      return task;
+    });
+    setTasks(newTasks);
+  };
 
-    async function updateQuote(event) {
-        event.preventDefault()
-        const req = await fetch('http://localhost:1337/api/quote', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'x-access-token': localStorage.getItem('token'),
-            },
-            body: JSON.stringify({
-                quote: tempQuote,
-            })
-        })
+  const handleChangeTaskDueDate = (index, dueDate) => {
+    const newTasks = tasks.map((task, i) => {
+      if (i === index) {
+        return {
+          ...task,
+          dueDate: dueDate
+        };
+      }
+      return task;
+    });
+    setTasks(newTasks);
+  };
 
-        const data = await req.json()
-        if (data.status === 'ok') {
-            setQuote(tempQuote)
-            setTempQuote('')
-        } else {
-            alert(data.error)
-        }
-    }
+  const handleChangeTaskPriority = (index, priority) => {
+    const newTasks = tasks.map((task, i) => {
+      if (i === index) {
+        return {
+          ...task,
+          priority: priority
+        };
+      }
+      return task;
+    });
+    setTasks(newTasks);
+  };
 
-    function goToProfile() {
-        navigate('/profile')
-    }
-
-    return (
-        <div>
-            <h1>Your quote: {quote || 'No quote found'}</h1>
-            <form onSubmit={updateQuote}>
-                <input
-                    type="text"
-                    placeholder="Quote"
-                    value={tempQuote}
-                    onChange={e => setTempQuote(e.target.value) }
-                />
-                <input type="submit" value="Update quote"/>
-            </form>
+  return (
+    <div className="dashboard">
+      <div className="to-do-list">
+      <a href = "/"><img className = "kenkologo" src = "/kenkologo.png" alt = "Logo"/></a>
+        <h2>Exercise List</h2>
+        <div className="new-task-form">
+          <input
+            type="text"
+            value={newTask}
+            placeholder="Enter a new exercise..."
+            onChange={(event) => setNewTask(event.target.value)}
+          />
+          <button className = "addListItem" onClick={handleAddTask}>Add</button>
         </div>
-    );
+        <ul>
+          {tasks.map((task, index) => (
+            <li key={index}>
+              <input
+                type="text"
+                value={task.name}
+                onChange={(event) => handleChangeTaskName(index, event.target.value)}
+              />
+              <input
+                type="text"
+                value={task.dueDate}
+                onChange={(event) => handleChangeTaskDueDate(index, event.target.value)}
+                placeholder="Muscle Group"
+              />
+              <input
+                type="text"
+                value={task.priority}
+                onChange={(event) => handleChangeTaskPriority(index, event.target.value)}
+                placeholder="Sets/Reps"
+              />
+              <button className = "deleteItemButtom" onClick={() => handleDeleteTask(index)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 }
 
-export default Dashboard
+export default Dashboard;

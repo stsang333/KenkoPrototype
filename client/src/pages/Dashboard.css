@@ -1,0 +1,70 @@
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+  }
+  
+  li:hover {
+    background-color: #e1e1e1;
+  }
+  
+  li .task {
+    flex: 1;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  li .due-date {
+    font-size: 16px;
+    color: #888;
+    margin-left: 10px;
+  }
+  
+  li .delete {
+    font-size: 16px;
+    color: red;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  .to-do-list{
+    width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: rgb(250,165,60);
+  }
+  .dashboard{
+    background-color: azure;
+  }
+  body{
+    background-color: azure;
+  }
+  .addListItem{
+    background-color: #1C3144;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 8px;
+    cursor: pointer;
+  }
+  .deleteItemButton{
+    background-color: #1C3144;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 8px;
+    cursor: pointer;
+  }

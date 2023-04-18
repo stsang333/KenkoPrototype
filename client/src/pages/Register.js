@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div className = "registerPage">
-      <img className = "kenkologo" src = "/kenkologo.png" alt = "Logo"/>
+      <a href = "/"><img className = "kenkologo" src = "/kenkologo.png" alt = "Logo"/></a>
       <div className = "registerBox">
       <h1>Register</h1>
       <form onSubmit={registerUser}>

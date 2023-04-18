@@ -15,7 +15,7 @@ function LandingPage() {
   return (
     <div className="landing-page">
         <div className = "topLanding">
-            <img className = "kenkologo" src = "/kenkologo.png" alt = "Logo"/>
+            <a href = "/"><img className = "kenkologo" src = "/kenkologo.png" alt = "Logo"/></a>
             <button className = "login-btn" onClick={handleLoginClick}>Login</button>
             <button className = "register-btn" onClick={handleRegisterClick}>Register</button>
         </div>
