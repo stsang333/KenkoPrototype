@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Register.css';
 
 function App() {
   const navigate = useNavigate()
@@ -33,6 +34,8 @@ function App() {
 
   return (
     <div>
+      <img className = "kenkologo" src = "/kenkologo.png" alt = "Logo"/>
+      <div className = "registerBox">
       <h1>Register</h1>
       <form onSubmit={registerUser}>
         <input
@@ -58,6 +61,7 @@ function App() {
         <br/>
         <input type="submit" value="Register"/>
       </form>
+      </div>
     </div>
   );
 }
