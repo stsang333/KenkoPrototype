@@ -1,9 +1,11 @@
 body{
     background-color: #4ba2fe;
+    font-family: "Helvetica Neue", sans-serif;
 }
 .kenkologo {
     width: 200px;
     height: 100px;
+    display:flex;
   }
   h1 {
     display: flex;
@@ -58,4 +60,17 @@ input[type="password"],input[type="name"] {
   
   .form input[type="submit"]:hover {
     background-color: #1885fa;
+  }
+  .registerPage {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
